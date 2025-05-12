@@ -1,0 +1,18 @@
+# Node modules
+node_modules/
+
+# Archivos de entorno
+.env
+
+# Archivos de log
+*.log
+
+# Build
+/dist/
+/build/
+
+# Archivos y configuraciones de VS Code
+.vscode/
+
+# Archivos temporales
+*.tmp
