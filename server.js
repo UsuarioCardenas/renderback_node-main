@@ -11,7 +11,7 @@ import bcrypt from 'bcryptjs'; // Importar bcrypt para encriptar la contraseña
 const app = express();
 
 const corsOptions = {
-    origin: process.env.FRONTEND_URL || "http://localhost:5173", // Por defecto, localhost durante desarrollo
+    origin: process.env.FRONTEND_URL || "http://localhost:5173" || "https://renderfront-react-main.onrender.com", // Por defecto, localhost durante desarrollo
 };
 
 
