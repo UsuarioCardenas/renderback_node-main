@@ -10,10 +10,21 @@ import bcrypt from 'bcryptjs'; // Importar bcrypt para encriptar la contraseña
 
 const app = express();
 
-const corsOptions = {
-    origin: process.env.FRONTEND_URL || "http://localhost:5173" || "https://renderfront-react-main.onrender.com/", // Por defecto, localhost durante desarrollo
-};
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://renderfront-react-main.onrender.com'
+];
 
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('No permitido por CORS'));
+    }
+  },
+  credentials: true,
+};
 
 app.use(cors(corsOptions));
 app.use(express.json());
